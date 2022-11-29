@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +16,6 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     ImageButton desk;
-    TextView tv;
     ImageView iv1,iv2,iv3,iv4,iv5,iv6,iv7,iv8,iv9,iv10,iv11,iv12;
     ImageView[] imageV=new ImageView[]{iv1,iv2,iv3,iv4,iv5,iv6,iv7,iv8,iv9,iv10,iv11,iv12};
     int[] ids=new int[]{
@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         desk=findViewById(R.id.ib_desk);
-        tv=findViewById(R.id.tv_desk);
         for(int k=0;k<ids.length;k++){
             imageV[k]=(ImageView)findViewById(ids[k]);
             imageV[k].setOnClickListener(listener);
