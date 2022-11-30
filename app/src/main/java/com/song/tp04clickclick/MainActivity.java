@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
             if(m>=12){
                 count++;
                 next();
+                Toast.makeText(MainActivity.this, "\"ING\"를 눌러주세요", Toast.LENGTH_SHORT).show();
             }
         }
     };
