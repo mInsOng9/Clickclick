@@ -1,6 +1,7 @@
 package com.song.tp04clickclick;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ import org.w3c.dom.Text;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    ImageButton desk;
+    ImageView desk;
     ImageView iv1,iv2,iv3,iv4,iv5,iv6,iv7,iv8,iv9,iv10,iv11,iv12;
     ImageView[] imageV=new ImageView[]{iv1,iv2,iv3,iv4,iv5,iv6,iv7,iv8,iv9,iv10,iv11,iv12};
     int[] ids=new int[]{
@@ -60,19 +61,26 @@ public class MainActivity extends AppCompatActivity {
         desk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                desk.setImageResource(R.drawable.ing);
-                for(int i=0;i<ids.length;i++){
-                    arr[i]=rnd.nextInt(ids.length);
-                    for(int j=0;j<i;j++){
-                        if(arr[i]==arr[j]) i--;
+                if(count>2){
+                    startActivity(new Intent(MainActivity.this,DoneActivity.class));
+                    finish();
+                }
+                else{
+                    desk.setImageResource(R.drawable.ing);
+                    for(int i=0;i<ids.length;i++){
+                        arr[i]=rnd.nextInt(ids.length);
+                        for(int j=0;j<i;j++){
+                            if(arr[i]==arr[j]) i--;
+                        }
+                    }
+                    for(int k=0;k<ids.length;k++){
+                        imageV[k].setImageResource(q[count][arr[k]]);
+                        imageV[k].setVisibility(View.VISIBLE);
+                        imageV[k].setTag(arr[k]);
+                        m=0;
                     }
                 }
-                for(int k=0;k<ids.length;k++){
-                    imageV[k].setImageResource(q[count][arr[k]]);
-                    imageV[k].setVisibility(View.VISIBLE);
-                    imageV[k].setTag(arr[k]);
-                    m=0;
-                }
+
             }
         });
     }

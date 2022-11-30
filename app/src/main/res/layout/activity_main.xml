@@ -8,12 +8,12 @@
     android:orientation="vertical"
     android:padding="30dp"
     tools:context=".MainActivity">
-    <ImageButton
+    <ImageView
         android:id="@+id/ib_desk"
         android:layout_margin="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/start"
+        android:src="@drawable/start"
         android:layout_gravity="center"/>
     <GridLayout
         android:layout_width="match_parent"
